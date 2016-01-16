@@ -1,5 +1,6 @@
 class ObserversController < ApplicationController
   before_action :set_observer, only: [:show, :update, :destroy]
+  before_filter :parse_request
 
   # GET /observers
   # GET /observers.json
@@ -54,6 +55,6 @@ class ObserversController < ApplicationController
     end
 
     def observer_params
-      params[:observer]
+      params.require(:observer).permit(:presenter_id, :status)
     end
 end
