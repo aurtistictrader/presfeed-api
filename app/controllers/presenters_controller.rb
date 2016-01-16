@@ -1,6 +1,5 @@
 class PresentersController < ApplicationController
   before_action :set_presenter, only: [:show, :update, :destroy]
-  before_filter :parse_request
 
   # GET /presenters
   # GET /presenters.json

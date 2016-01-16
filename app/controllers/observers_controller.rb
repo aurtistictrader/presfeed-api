@@ -1,6 +1,6 @@
 class ObserversController < ApplicationController
   before_action :set_observer, only: [:show, :update, :destroy]
-  before_filter :parse_request
+  before_filter :parse_request, only: [:create, :update]
 
   # GET /observers
   # GET /observers.json
