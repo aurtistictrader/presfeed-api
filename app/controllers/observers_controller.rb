@@ -5,9 +5,10 @@ class ObserversController < ApplicationController
   # GET /observers
   # GET /observers.json
   def index
-    @observers = Observer.all
+      @observers = Observer.all unless params[:presenter_id]
+      @observers = Observer.where(presenter_id: params[:presenter_id]) if params[:presenter_id]
 
-    render json: @observers
+      render json: @observers
   end
 
   # GET /observers/1
