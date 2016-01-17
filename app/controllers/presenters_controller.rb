@@ -42,6 +42,7 @@ class PresentersController < ApplicationController
   # DELETE /presenters/1
   # DELETE /presenters/1.json
   def destroy
+    @presenter.observers.destroy_all
     @presenter.destroy
 
     head :no_content
