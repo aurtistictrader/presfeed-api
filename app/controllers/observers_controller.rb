@@ -8,7 +8,11 @@ class ObserversController < ApplicationController
       @observers = Observer.all unless params[:presenter_id]
       @observers = Observer.where(presenter_id: params[:presenter_id]) if params[:presenter_id]
 
-      render json: @observers
+      if @observers.empty?
+        render json: @observers.errors, status: :not_found
+      else
+        render json: @observers
+      end
   end
 
   # GET /observers/1
