@@ -26,6 +26,4 @@ test:
 
 production:
   <<: *default
-  username: root
-  password: password
-  database: pushfeed_prod
+  url: <%= ENV['DATABASE_URL'] %>
