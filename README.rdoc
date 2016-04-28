@@ -5,3 +5,5 @@ This is the general backend for the observer - presenter model.
 It is particular designed in this case for dynamic presentations and quick feedback.
 
 Api is based here: http://docs.pushfeed.apiary.io/
+
+Api is also deployed to heroku here: https://presfeed-api.herokuapp.com/observers
