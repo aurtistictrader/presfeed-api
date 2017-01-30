@@ -1,0 +1,138 @@
+FORMAT: 1A
+
+# pushfeed
+
+Simple API allowing presenters and observers to connect.
+
+## Presenters Collection [/presenters]
+
+### List all presenters [GET /presenters]
+
++ Response 200 (application/json)
+
+        [
+          {
+            "id": 1,
+            "created_at": "2016-01-16T20:21:58.694Z",
+            "updated_at": "2016-01-16T20:21:58.694Z"
+          },
+          {
+            "id": 2,
+            "created_at": "2016-01-16T20:23:13.911Z",
+            "updated_at": "2016-01-16T20:23:13.911Z"
+          }
+        ]
+
+### List one presenter [GET /presenters/{id}]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "created_at": "2016-01-16T20:21:58.694Z",
+            "updated_at": "2016-01-16T20:21:58.694Z"
+        }
+        
+### Create a presenter [POST]
+
++ Request (application/json)
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+              "id": 1,
+              "created_at": "2016-01-16T20:21:58.694Z",
+              "updated_at": "2016-01-16T20:21:58.694Z"
+            }
+
+### Delete a presenter [DELETE /presenters/{id}]
+
++ Response 204 (application/json)
+
+
+## Observers Collection [/observers]
+
+### List all observers [GET /observers]
+
++ Response 200 (application/json)
+
+        [
+          {
+            "id": 1,
+            "presenter_id": 1,
+            "status": 2,
+            "created_at": "2016-01-16T19:19:51.835Z",
+            "updated_at": "2016-01-16T19:19:51.835Z"
+          },
+          {
+            "id": 2,
+            "presenter_id": 1,
+            "status": 1,
+            "created_at": "2016-01-16T19:21:40.942Z",
+            "updated_at": "2016-01-16T19:21:40.942Z"
+          }
+        ]
+
+### List all observers by presenter [GET /observers?presenter_id=2]
+
++ Response 200 (application/json)
+
+        [
+          {
+            "id": 1,
+            "presenter_id": 2,
+            "status": 2,
+            "created_at": "2016-01-16T19:19:51.835Z",
+            "updated_at": "2016-01-16T19:19:51.835Z"
+          },
+          {
+            "id": 2,
+            "presenter_id": 2,
+            "status": 1,
+            "created_at": "2016-01-16T19:21:40.942Z",
+            "updated_at": "2016-01-16T19:21:40.942Z"
+          }
+        ]
+
+### List one observer [GET /observers/{id}]
+
++ Response 200 (application/json)
+
+        {
+          "id": 31,
+          "presenter_id": 2,
+          "status": 2,
+          "created_at": "2016-01-16T19:41:20.224Z",
+          "updated_at": "2016-01-16T19:41:20.224Z"
+        }
+        
+### Update one observer [PUT /observers/{id}]
+
++ Response 200 (application/json)
+
+        {
+            "observer" : {
+                "status" : 2
+            }
+        }
+        
+### Create an observer [POST]
+
++ Request (application/json)
+
++ Response 201 (application/json)
+
+    + Body
+
+            {
+                "observer" : {
+                    "status" : 2,
+                    "presenter_id": 2
+                }
+            }
+
+### Delete an observer [DELETE /observers/{id}]
+
++ Response 204 (application/json)
